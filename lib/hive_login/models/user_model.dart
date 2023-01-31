@@ -12,6 +12,7 @@ class UserModel {
   @HiveField(2)
   String? id;
 
+
   UserModel({
     required this.email,
     required this.password,

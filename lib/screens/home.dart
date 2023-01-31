@@ -15,14 +15,15 @@ class _HomePageState extends State<HomePage> {
   List<Map<String, dynamic>> _items = []; // TO STORE ITEMS FROM THE HIVE DB
 
   final _shoppingBox = Hive.box('ShoppingBag');
+  // in
   TextEditingController name = TextEditingController();
   TextEditingController quantity = TextEditingController();
 
   void _refreshItems() {
-    final data = _shoppingBox.keys.map((index) {
-      final value = _shoppingBox.get(index);
+    final data = _shoppingBox.keys.map((key) {
+      final value = _shoppingBox.get(key);
       return {
-        "key": index,
+        "key": key,
         "name": value["name"],
         "quantity": value["quantity"]
       };
@@ -128,7 +129,7 @@ class _HomePageState extends State<HomePage> {
                     minLines: 1,
                     keyboardType: TextInputType.number,
                     inputFormatters: <TextInputFormatter>[
-                        FilteringTextInputFormatter.digitsOnly
+                      FilteringTextInputFormatter.digitsOnly
                     ],
                     maxLines: 1,
                     decoration: InputDecoration(
@@ -141,11 +142,11 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Align(
                     alignment: Alignment.centerRight,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Theme.of(context).primaryColor,
-                          foregroundColor:
-                              Theme.of(context).primaryIconTheme.color,
+                    child: FilledButton.tonal(
+                      style: FilledButton.styleFrom(
+                          // backgroundColor: Theme.of(context).primaryColor,
+                          // foregroundColor:
+                          //Theme.of(context).primaryIconTheme.color,
                           minimumSize: const Size(100, 40),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10))),
@@ -226,12 +227,15 @@ class _HomePageState extends State<HomePage> {
                               fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                         Text.rich(TextSpan(
-                          style: const TextStyle(fontSize: 16),
-                          children: [
-                            const TextSpan(text: 'Qty. '),
-                            TextSpan(text: currentItem["quantity"], style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
-                          ]
-                        )),
+                            style: const TextStyle(fontSize: 16),
+                            children: [
+                              const TextSpan(text: 'Qty. '),
+                              TextSpan(
+                                text: currentItem["quantity"],
+                                style: const TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold),
+                              ),
+                            ])),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -245,10 +249,11 @@ class _HomePageState extends State<HomePage> {
                             IconButton(
                               icon: const Icon(Icons.delete),
                               onPressed: () {
-                                _deleteItem(currentItem["key"]).then((value) => Fluttertoast.showToast(
-                                  msg: 'Item deleted',
-                                  toastLength: Toast.LENGTH_LONG,
-                                  gravity: ToastGravity.BOTTOM));
+                                _deleteItem(currentItem["key"]).then((value) =>
+                                    Fluttertoast.showToast(
+                                        msg: 'Item deleted',
+                                        toastLength: Toast.LENGTH_LONG,
+                                        gravity: ToastGravity.BOTTOM));
                               },
                             ),
                           ],
