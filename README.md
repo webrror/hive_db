@@ -1,16 +1,11 @@
-# hive_db
+## Hive DB Example
 
-A new Flutter project.
+A app made with Flutter demonstrating hivedb.
 
-## Getting Started
+#### Light Mode
 
-This project is a starting point for a Flutter application.
+<img src='screenshots/1.png' width=250 />  <img src='screenshots/2.png' width=250/>
 
-A few resources to get you started if this is your first Flutter project:
+#### Dark Mode
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src='screenshots/3.png' width=250 />  <img src='screenshots/4.png' width=250/>
