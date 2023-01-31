@@ -198,7 +198,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text("Hive Example"),
         elevation: 0,
-        backgroundColor: Colors.transparent,
+       
       ),
       body: _items.isEmpty
           ? const Center(
