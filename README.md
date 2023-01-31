@@ -1,6 +1,6 @@
 ## Hive DB Example
 
-A app made with Flutter demonstrating hivedb.
+An app made with Flutter demonstrating hivedb.
 
 #### Light Mode
 
